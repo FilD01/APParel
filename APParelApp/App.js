@@ -32,21 +32,21 @@ function App() {
     const amountOfItems = 10 
     const [data,setData] = useState({});
     useEffect (() => {
-        firestore().collection('datasets').get().then( snap => {
-            const monster = snap.docs;
+        firestore().collection('Groenstraat').doc('Kast').get().then( snap => {
+            const monster = snap.data();
             setData(monster)
         }).catch('no')
     },[])
     const isDarkMode = useColorScheme() === 'dark';
     
-    console.log(data[0])
     
     const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
     const output= []
-    for (let i=1; i<=amountOfItems; i++){
-        output.push(<ItemBlock key={i}/>)
+    for (let [key, value] of Object.entries(data)){
+        console.log(key)
+        output.push(<ItemBlock key={key} item={key} value={value}/>)
     }
   return (
     <SafeAreaView style={backgroundStyle}>
@@ -56,16 +56,6 @@ function App() {
         </ScrollView>
     </SafeAreaView>
   );
-//return (
-//  <SafeAreaView style={backgroundStyle}>
-//      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-//      <View style={styles.mainbox}>
-//          {for(let i=0;i<=4;i++){
-//              <ItemBlock index=i/>
-//          }}
-//      </View>
-//  </SafeAreaView>
-//);
 };
 
 const styles = StyleSheet.create({
