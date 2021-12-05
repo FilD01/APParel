@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     },
     rightbuttonbox: {
         flex: 1,
-        backgroundColor: 'grey',
+        backgroundColor: 'green',
         margin: 5,
     },
     buttonbox: {
