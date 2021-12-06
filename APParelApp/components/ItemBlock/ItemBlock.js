@@ -3,7 +3,7 @@ import {    Text,
             StyleSheet,
             View,
     } from 'react-native';
-import { Icon } from 'react-native-elements';
+// import { Icon } from 'react-native-elements'
 function ItemBlock (props) {
     
     useEffect(() => {
@@ -14,7 +14,9 @@ function ItemBlock (props) {
         <View style={styles.maincontainer}u>
         
             <View style={styles.leftcontainer}>
-                <View style={styles.iconbox}/>
+                <View style={styles.iconbox}>
+  
+                </View>
                 <View style={styles.textbox}>
                     <Text style={styles.text}>{props.item}</Text> 
                 </View>
